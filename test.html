@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log("first")
+
+        const somepromise = fetch ("https://reqres.in/api/users")
+
+        somepromise
+          .then(data => data.json())
+          .then(result => {
+              const userArr = result.data
+
+              for (let i=0; i<userArr.length; i++) {
+                  const newElement = document.createElement("p")
+
+                  newElement.innerText = 
+                 ' ${userArr[i].first_name}, ${userArr[i].first_name}, ${userArr[i].first_name}, ${userArr[i].first_name}'
+
+                  document.querySelector("h1").appendChild(newElement)
+                  
+              }
+          })
+
+          .catch(error => console.log("got someerror-", error))
+
+    </script>
+</head>
+<body>
+    <h1>geekster</h1>
+</body>
+</html>
